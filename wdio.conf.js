@@ -27,6 +27,12 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+
+    // ============
+    // Base URL
+    // ============
+    baseUrl: 'https://demoqa.com/',
+
     //
     // ============
     // Capabilities

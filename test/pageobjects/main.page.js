@@ -6,12 +6,12 @@ class MainPage extends Page {
     /**
      * define selectors using getter methods
      */
-    get elementPageCard () {
-        return $("//div[contains(@class, 'card-body')]//h5[text()='Elements']");
+    getSectionPageCard (section) {
+        return $(`//div[contains(@class, 'card-body')]//h5[text()='${section}']`);
     }
 
-    async navigate () {
-        await this.elementPageCard.click();
+    async navigate (section) {
+        await this.getSectionPageCard(section).click();
     }
 }
 
