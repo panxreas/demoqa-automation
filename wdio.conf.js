@@ -56,7 +56,29 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'firefox'
+        browserName: 
+            'firefox',
+            'moz:firefoxOptions': {
+                prefs: {
+                    // Kill most ad / tracking scripts
+                    'privacy.trackingprotection.enabled': true,
+                    'privacy.trackingprotection.socialtracking.enabled': true,
+                    'privacy.trackingprotection.cryptomining.enabled': true,
+                    'privacy.trackingprotection.fingerprinting.enabled': true,
+
+                    // Disable popups & notifications
+                    'dom.webnotifications.enabled': false,
+                    'dom.push.enabled': false,
+                    'dom.disable_open_during_load': true,
+
+                    // Reduce autoplay / media ads
+                    'media.autoplay.default': 5,
+
+                    // Prevent some overlay behavior
+                    'dom.disable_beforeunload': true
+                }
+            }
+
     }],
 
     //
