@@ -1,14 +1,69 @@
 const { expect } = require('@wdio/globals')
-const MainPage = require('../pageobjects/main.page')
-const ElementsPage = require('../pageobjects/elements.page')
+const ElementsPage = require('../../pageobjects/elements/elements.page')
 
-describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        await MainPage.open()
-        await MainPage.navigate()
+describe('Elements section page', () => {
+    
+    it('should validate element Text Box works as intended @smoke', async () => {
+        await ElementsPage.open('/elements')
+        await ElementsPage.navigateToSection('Text Box')
 
-        await expect(ElementsPage.elementPageTitle).toHaveText('Elements')
+        await expect(ElementsPage.menuTitle).toHaveText('Text Box')
+    })
 
+    it('should validate element Check Box works as intended @smoke', async () => {
+        await ElementsPage.open('/elements')
+        await ElementsPage.navigateToSection('Check Box')
+        
+        await expect(ElementsPage.menuTitle).toHaveText('Check Box')
+    })
+
+    it('should validate element Radio Button works as intended @smoke', async () => {
+        await ElementsPage.open('/elements')
+        await ElementsPage.navigateToSection('Radio Button')
+
+        await expect(ElementsPage.menuTitle).toHaveText('Radio Button')
+    })
+
+    it('should validate element Web Tables works as intended @smoke', async () => {
+        await ElementsPage.open('/elements')
+        await ElementsPage.navigateToSection('Web Tables')
+
+        await expect(ElementsPage.menuTitle).toHaveText('Web Tables')
+    })
+
+    it('should validate element Buttons works as intended @smoke', async () => {
+        await ElementsPage.open('/elements')
+        await ElementsPage.navigateToSection('Buttons')
+
+        await expect(ElementsPage.menuTitle).toHaveText('Buttons')
+    })
+
+    it('should validate element Links works as intended @smoke', async () => {
+        await ElementsPage.open('/elements')
+        await ElementsPage.navigateToSection('Links')
+
+        await expect(ElementsPage.menuTitle).toHaveText('Links')
+    })
+
+    it('should validate element Broken Links - Images works as intended @smoke', async () => {
+        await ElementsPage.open('/elements')
+        await ElementsPage.navigateToSection('Broken Links - Images')
+
+        await expect(ElementsPage.menuTitle).toHaveText('Broken Links - Images')
+    })
+
+    it('should validate element Upload and Download works as intended @smoke', async () => {
+        await ElementsPage.open('/elements')
+        await ElementsPage.navigateToSection('Upload and Download')
+
+        await expect(ElementsPage.menuTitle).toHaveText('Upload and Download')
+    })
+
+    it('should validate element Dynamic Properties works as intended @smoke', async () => {
+        await ElementsPage.open('/elements')
+        await ElementsPage.navigateToSection('Dynamic Properties')
+
+        await expect(ElementsPage.menuTitle).toHaveText('Dynamic Properties')
     })
 })
 
