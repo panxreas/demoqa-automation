@@ -12,6 +12,7 @@ class ElementsPage extends Page {
     async getMenuElement (element) {
         return $(`//div//span[text()='${element}']`);
     }
+
     async navigateToSection (element) {
         const menuItem = await this.getMenuElement(element);
         await menuItem.scrollIntoView({ block: 'center', inline: 'center' });
