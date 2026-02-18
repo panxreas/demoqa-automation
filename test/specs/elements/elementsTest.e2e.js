@@ -1,7 +1,7 @@
 const { expect } = require('@wdio/globals')
 const ElementsPage = require('../../pageobjects/elements/elements.page')
 
-describe('Elements section page', () => {
+describe('Elements section page smoke test', () => {
     
     it('should validate element Text Box works as intended @smoke', async () => {
         await ElementsPage.open('/elements')
