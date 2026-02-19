@@ -34,6 +34,13 @@ class TextBoxPage extends Page {
         await this.permanentAddressInput.setValue(user.permananet_address);
     }
 
+    async clearForm () {
+        await this.fullNameInput.clearValue();
+        await this.emailInput.clearValue();
+        await this.currentAddressInput.clearValue();
+        await this.permanentAddressInput.clearValue();    
+    }
+
     async submit () {
         await this.submitButton.scrollIntoView();
         await this.submitButton.click();

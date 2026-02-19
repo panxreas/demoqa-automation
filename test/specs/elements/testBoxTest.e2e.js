@@ -1,11 +1,13 @@
-const { expect } = require('@wdio/globals')
-const TextBoxPage = require('../../pageobjects/elements/textBox.page')
-const ElementsPage = require('../../pageobjects/elements/elements.page.js')
-const MainPage = require('../../pageobjects/main.page')
+const { expect } = require('@wdio/globals');
+const TextBoxPage = require('../../pageobjects/elements/textBox.page');
+const ElementsPage = require('../../pageobjects/elements/elements.page.js');
+const MainPage = require('../../pageobjects/main.page');
+const { validUsers, invalidUsers } = require('../../data/textBoxData/users.js');
+const textBoxPage = require('../../pageobjects/elements/textBox.page');
 
 describe('Text Box element', () => {
 
-    before('Open main page and navigate to Elements section', async () => {
+    beforeEach('Open main page and navigate to Elements section', async () => {
         await MainPage.open()
         await MainPage.navigate('Elements')
         await ElementsPage.navigateToSection('Text Box')
@@ -27,6 +29,19 @@ describe('Text Box element', () => {
         keys.forEach((key) => {
             expect(smokeUser[key]).toEqual(output[key])
         })        
+    })
+
+    it('should submit the form successfully for multiple valid users @mat', async () => {
+        for (const user of validUsers) {
+            await textBoxPage.fillForm(user)
+            await textBoxPage.submit()
+            const output = await textBoxPage.getSubmitionOutput(user)
+            const keys = Object.keys(user)
+            keys.forEach((key) => {
+                expect(user[key]).toEqual(output[key])
+            })
+            await textBoxPage.clearForm()
+        }
     })
 
 })

@@ -11,6 +11,8 @@ The goal of this repository is to:
 - Apply Page Object Model (POM) design pattern
 - Build a scalable and maintainable test architecture
 - Create a reusable skeleton for testing larger web applications
+- Clean architecture
+- Professional test organization
 
 The application under test is https://demoqa.com, starting with the **Elements → Text Box** feature.
 
@@ -94,20 +96,19 @@ npm run test:at
 
 ```
 test/
-│
-├── pageobjects/
-│   ├── base.page.js
-│   ├── elements.page.js
-│   ├── textbox.page.js
-│
-├── specs/
-│   ├── elements/
-│   │   ├── textbox.spec.js
-│
-├── data/
-│
-├── utils/
-│
+├── pageobjects
+│   ├── elements
+│   │   ├── elements.page.js
+│   │   └── textBox.page.js
+│   ├── main.page.js
+│   └── page.js
+└── specs
+    ├── alert_windows
+    ├── elements
+    │   ├── elementsTest.e2e.js
+    │   └── testBoxTest.e2e.js
+    ├── forms
+    └── mainPageTest.e2e.js
 wdio.conf.js
 package.json
 ```
@@ -121,6 +122,25 @@ package.json
 - **wdio.conf.js** → WebdriverIO configuration
 - **package.json** → Contains test execution scripts
 
+# 🏷 Test Execution Strategy
+
+Tests are **grouped by feature**.
+
+Test levels are separated using **Mocha tags**:
+
+- `@smoke`
+- `@mat`
+- `@at`
+
+**Example:**
+
+```javascript
+it('should submit textbox with minimum required data @mat', async () => {
+    // test implementation
+});
+
+This allows flexible execution without duplicating folder structures.
+
 ## 🧪 Tests Included
 
 ### Elements Section
@@ -131,7 +151,7 @@ package.json
 
 ### ✅ Smoke Test
 
-- Page loads successfully
+- Quick check to see if the application’s critical functions work.
 
 ---
 
@@ -145,7 +165,7 @@ package.json
 
 - Validate required fields
 - Validate successful submission
-- Validate input handling
+- Validate handling both expected and unexpected inputs
 
 # 🚀 Future Roadmap
 
@@ -172,3 +192,4 @@ package.json
 
 - Improve test data management
 - Enhance selector strategy
+```
