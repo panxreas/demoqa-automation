@@ -58,7 +58,94 @@ npm install
 
 ## ▶️ Running Tests
 
+### Run All Tests
+
+```
+npm test
+```
+
+### Run Smoke Tests
+
+Smoke tests validate that the main functionality works and the page loads correctly.
+
+```
+npm run test:smoke
+```
+
+### Run MAT Tests
+
+MAT (Minimal Acceptance Tests) tests validate the minimal required functionality for a feature to be considered working.
+
+```
+npm run test:mat
+```
+
+### Run AT Tests
+
+Acceptance tests validate business rules, edge cases, and form validations.
+
+```
+npm run test:at
+```
+
 ---
+
+## 🏗 Framework Structure
+
+```
+test/
+│
+├── pageobjects/
+│   ├── base.page.js
+│   ├── elements.page.js
+│   ├── textbox.page.js
+│
+├── specs/
+│   ├── elements/
+│   │   ├── textbox.spec.js
+│
+├── data/
+│
+├── utils/
+│
+wdio.conf.js
+package.json
+```
+
+## Structure Explanation
+
+- **pageobjects/** → Contains reusable page classes (POM pattern)
+- **specs/** → Test files grouped by feature
+- **data/** → Test data (future expansion)
+- **utils/** → Helper functions (future expansion)
+- **wdio.conf.js** → WebdriverIO configuration
+- **package.json** → Contains test execution scripts
+
+## 🧪 Tests Included
+
+### Elements Section
+
+- Text Box Feature
+
+---
+
+### ✅ Smoke Test
+
+- Page loads successfully
+
+---
+
+### ✅ MAT (Minimal Acceptance Test)
+
+- Submit form with minimum required valid data
+
+---
+
+### ✅ Acceptance Tests
+
+- Validate required fields
+- Validate successful submission
+- Validate input handling
 
 # 🚀 Future Roadmap
 

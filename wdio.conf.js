@@ -156,6 +156,7 @@ exports.config = {
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
+        grep: process.env.npm_config_grep,
         ui: 'bdd',
         timeout: 60000
     },
