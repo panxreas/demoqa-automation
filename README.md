@@ -135,9 +135,10 @@ Test levels are separated using **Mocha tags**:
 **Example:**
 
 ```javascript
-it('should submit textbox with minimum required data @mat', async () => {
-    // test implementation
+it("should submit textbox with minimum required data @mat", async () => {
+  // test implementation
 });
+```
 
 This allows flexible execution without duplicating folder structures.
 
@@ -192,4 +193,7 @@ This allows flexible execution without duplicating folder structures.
 
 - Improve test data management
 - Enhance selector strategy
+
+```
+
 ```
